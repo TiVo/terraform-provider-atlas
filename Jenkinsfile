@@ -1,7 +1,7 @@
 #!groovy
 
 def providerNamespace = 'ariga'
-def providerId = 'terraform-provider-atlas'
+def providerId = 'atlas'
 def providerVersion = 'v0.1.9-tivo.1'
 
 pipeline {
