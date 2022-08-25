@@ -22,8 +22,14 @@ pipeline {
                 }
             }
             steps {
-                sh "go build ."
-                sh "./scripts/build-multi-arch.sh terraform-provider-${providerId}_${providerVersion} ."
+                //sh "go build ."
+                //sh "./scripts/build-multi-arch.sh terraform-provider-${providerId}_${providerVersion} ."
+                """
+	            GOOS=linux  GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_linux_amd64
+	            GOOS=linux  GOARCH=arm64 go build -o ./bin/${BINARY}_${VERSION}_linux_arm64
+                GOOS=darwin GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_darwin_amd64
+                GOOS=darwin GOARCH=arm64 go build -o ./bin/${BINARY}_${VERSION}_darwin_arm64
+                """
             }
         }
 
