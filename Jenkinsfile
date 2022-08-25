@@ -32,7 +32,7 @@ pipeline {
         }
 
         stage( 'Publish to Provider Registry' ) {
-            when { branch 'xxxtivo-build' }
+            when { branch 'tivo-build' }
 
             agent {
                 docker {
@@ -71,4 +71,3 @@ pipeline {
         }
     }
 }
-
