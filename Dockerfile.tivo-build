@@ -1,0 +1,3 @@
+FROM golang:1.18
+
+ENV GOCACHE=/tmp/.cache
