@@ -23,10 +23,10 @@ pipeline {
             }
             steps {
                 sh """
-	            GOOS=linux  GOARCH=amd64 go build -o ./bin/${providerId}_${providerVersion}_linux_amd64
-	            GOOS=linux  GOARCH=arm64 go build -o ./bin/${providerId}_${providerVersion}_linux_arm64
-                GOOS=darwin GOARCH=amd64 go build -o ./bin/${providerId}_${providerVersion}_darwin_amd64
-                GOOS=darwin GOARCH=arm64 go build -o ./bin/${providerId}_${providerVersion}_darwin_arm64
+	            GOOS=linux  GOARCH=amd64 go build -o ./out/linux_amd64/${providerId}_${providerVersion}
+	            GOOS=linux  GOARCH=arm64 go build -o ./out/linux_arm64/${providerId}_${providerVersion}
+                GOOS=darwin GOARCH=amd64 go build -o ./out/darwin_amd64/${providerId}_${providerVersion}
+                GOOS=darwin GOARCH=arm64 go build -o ./out/darwin_arm64/${providerId}_${providerVersion}
                 """
             }
         }
