@@ -2,7 +2,7 @@
 
 def providerNamespace = 'ariga'
 def providerId = 'terraform-provider-atlas'
-def providerVersion = 'v0.1.9-tivo.1'
+def providerVersion = 'v0.1.8.1'
 
 pipeline {
     agent { label 'docker' }
@@ -23,10 +23,10 @@ pipeline {
             }
             steps {
                 sh """
-	            GOOS=linux  GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_linux_amd64
-	            GOOS=linux  GOARCH=arm64 go build -o ./bin/${BINARY}_${VERSION}_linux_arm64
-                GOOS=darwin GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_darwin_amd64
-                GOOS=darwin GOARCH=arm64 go build -o ./bin/${BINARY}_${VERSION}_darwin_arm64
+	            GOOS=linux  GOARCH=amd64 go build -o ./bin/${providerId}_${providerVersion}_linux_amd64
+	            GOOS=linux  GOARCH=arm64 go build -o ./bin/${providerId}_${providerVersion}_linux_arm64
+                GOOS=darwin GOARCH=amd64 go build -o ./bin/${providerId}_${providerVersion}_darwin_amd64
+                GOOS=darwin GOARCH=arm64 go build -o ./bin/${providerId}_${providerVersion}_darwin_arm64
                 """
             }
         }
