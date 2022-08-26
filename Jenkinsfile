@@ -2,7 +2,7 @@
 
 def providerNamespace = 'ariga'
 def providerId        = 'atlas'
-def providerVersion   = 'v0.1.9-tivo.2'
+def providerVersion   = 'v0.1.9-tivo.3'
 
 pipeline {
     agent { label 'docker' }
